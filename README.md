@@ -8,7 +8,10 @@
 var coherencePushState = require('coherence-pushstate');
 var dispatcher = require('flux').Dispatcher();
 
-// register action handlers to update browser URL
+/*
+Register action handlers to update browser URL; call this AFTER
+your Controllers are defined and instantiated.
+*/
 coherencePushState.initialize(dispatcher);
 
 // convenient action creator, for navigating:
@@ -28,6 +31,14 @@ var CoherenceLink = React.createClass({
   },
 });
 ```
+
+### initialize()
+
+- sets up pushState and replaceState hooks for Coherence navigate actions
+- sets up an onpopstate hook, which will dispatch a navigate action, and
+  trigger your Coherence Controllers' routing logic
+- dispatches an initial navigate action, and sets up an initial history state,
+  to initialize any route-dependent state in your app
 
 ### Navigator methods
 

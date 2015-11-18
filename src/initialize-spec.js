@@ -25,10 +25,18 @@ describe('initialize', () => {
     mocks.window.history.pushState = sinon.spy();
     mocks.window.history.replaceState = sinon.spy();
 
+    mocks.window.location = {};
+  });
+
+  it('sets the current history state to window.location.pathname', () => {
+    mocks.window.location.pathname = '/dingdong';
     initialize(mocks.dispatcher, mocks.window);
+    expect(mocks.window.history.replaceState.args[0][0].path).to.eq('/dingdong');
+    expect(mocks.window.history.replaceState.args[0][2]).to.eq('/dingdong');
   });
 
   it('updates the browser URL on navigate', () => {
+    initialize(mocks.dispatcher, mocks.window);
     mocks.dispatcher.dispatch({
       type: NAVIGATE,
       path: '/foo',
@@ -39,6 +47,7 @@ describe('initialize', () => {
   });
 
   it('does not update the browser URL on navigate, if pushState: false', () => {
+    initialize(mocks.dispatcher, mocks.window);
     mocks.dispatcher.dispatch({
       type: NAVIGATE,
       path: '/bonk',
@@ -48,12 +57,13 @@ describe('initialize', () => {
   });
 
   it('replaces state on navigate, if replaceState: true', () => {
+    initialize(mocks.dispatcher, mocks.window);
     mocks.dispatcher.dispatch({
       type: NAVIGATE,
       path: '/blamo',
       replaceState: true,
     });
-    expect(mocks.window.history.replaceState.args[0][0].path).to.eq('/blamo');
-    expect(mocks.window.history.replaceState.args[0][2]).to.eq('/blamo');
+    expect(mocks.window.history.replaceState.args[1][0].path).to.eq('/blamo');
+    expect(mocks.window.history.replaceState.args[1][2]).to.eq('/blamo');
   });
 });
