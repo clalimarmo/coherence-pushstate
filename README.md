@@ -59,3 +59,17 @@ dispatcher.dispatch({
   replaceState: true,
 });
 ```
+
+## Development
+
+Testing:
+
+```bash
+npm test
+```
+
+Build:
+
+```bash
+gulp build
+```
