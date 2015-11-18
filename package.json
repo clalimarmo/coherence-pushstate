@@ -1,0 +1,49 @@
+{
+  "name": "coherence-pushstate",
+  "version": "3.0.0-rc2",
+  "description": "pushstate hooks for Coherence routing",
+  "main": "build/coherence-pushstate.js",
+  "files": [
+    "README.md",
+    "src",
+    "build"
+  ],
+  "scripts": {
+    "test": "gulp spec",
+    "compile": "gulp build",
+    "precompile": "npm run test",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clalimarmo/coherence-pushstate.git"
+  },
+  "keywords": [
+    "coherence",
+    "pushstate"
+  ],
+  "author": "Carlos Lalimarmo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clalimarmo/coherence-pushstate/issues"
+  },
+  "homepage": "https://github.com/clalimarmo/coherence-pushstate",
+  "devDependencies": {
+    "babel-eslint": "^4.1.5",
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
+    "chai": "^3.4.1",
+    "coherence": "^3.0.0-rc2",
+    "del": "^2.1.0",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-eslint": "^1.1.0",
+    "gulp-mocha": "^2.2.0",
+    "gulp-util": "^3.0.6",
+    "mocha": "^2.3.4",
+    "require-dir": "^0.3.0",
+    "sinon": "^1.17.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
