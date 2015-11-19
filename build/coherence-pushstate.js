@@ -54,4 +54,6 @@ function initialize(dispatcher, _window) {
       navigator.navigate(event.state.path, false);
     }
   };
+
+  navigator.redirect(_window.location.pathname);
 }
